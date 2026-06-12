@@ -1,6 +1,6 @@
 # 🛍️ AuraCart - Premium E-Commerce Platform
 
-![AuraCart Preview](./public/images/aura-cart.png)
+![AuraCart Preview](./AuraCart-frontend/public/images/aura-cart.png)
 
 Welcome to **AuraCart**, a fully functional, premium e-commerce web application designed to deliver a modern and luxury shopping experience. This project serves as a showcase of modern frontend development, state management, and responsive design, built as part of my Project Showcasing Journey (Project 28 of 29).
 
