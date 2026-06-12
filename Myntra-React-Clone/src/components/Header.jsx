@@ -38,30 +38,34 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
 
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center space-x-2 text-3xl font-extrabold tracking-tight">
-              <img src="/logo.png" alt="AuraCart Logo" className="h-10 w-auto object-contain" onError={(e) => {
-                e.target.style.display = 'none'; // Fallback to text if logo fails to load
-              }} />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-accent2 to-brand-accent1">
+          <div className="flex-shrink-0 flex items-center mr-8 lg:mr-12">
+            <Link to="/" className="flex items-center gap-1 group">
+              <img
+                src="/images/rem-bg-logo.png"
+                alt="AuraCart Logo"
+                className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-accent2 to-brand-accent1 text-2xl sm:text-3xl font-extrabold tracking-tight whitespace-nowrap">
                 AuraCart
               </span>
             </Link>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {['Men', 'Women', 'Kids', 'Home & Living', 'Beauty'].map((item) => {
               const isActive = currentCategory.toLowerCase() === item.toLowerCase();
               return (
                 <Link
                   key={item}
                   to={`/?category=${item}`}
-                  className={`font-medium uppercase tracking-wide text-sm transition-colors duration-200 py-2 border-b-2 ${
-                    isActive 
-                      ? "text-brand-light border-brand-accent1" 
-                      : "text-brand-muted border-transparent hover:text-brand-light hover:border-brand-accent1"
-                  }`}
+                  className={`font-medium uppercase tracking-wide text-sm transition-colors duration-200 py-2 border-b-2 whitespace-nowrap ${isActive
+                    ? "text-brand-light border-brand-accent1"
+                    : "text-brand-muted border-transparent hover:text-brand-light hover:border-brand-accent1"
+                    }`}
                 >
                   {item}
                 </Link>

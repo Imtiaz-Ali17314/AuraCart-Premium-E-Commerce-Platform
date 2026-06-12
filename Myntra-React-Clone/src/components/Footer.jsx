@@ -8,11 +8,14 @@ const Footer = () => {
 
           {/* Brand Info */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-extrabold tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-accent2 to-brand-accent1">
+            <div className="flex items-center gap-1 sm:gap-1">
+              <img src="/images/rem-bg-logo.png" alt="AuraCart Logo" className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onError={(e) => {
+                e.target.style.display = 'none';
+              }} />
+              <span className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-accent2 to-brand-accent1">
                 AuraCart
               </span>
-            </h2>
+            </div>
             <p className="text-brand-muted text-sm leading-relaxed">
               Your premium destination for fashion, electronics, and home essentials. Elevate your lifestyle with AuraCart.
             </p>
