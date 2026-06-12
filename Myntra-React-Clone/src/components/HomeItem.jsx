@@ -10,10 +10,12 @@ const HomeItem = ({ item }) => {
 
   const handleAddToBag = (item) => {
     dispatch(bagActions.addToBag(item.id));
+    alert("Item added to bag!");
   };
 
   const handleRemove = (item) => {
     dispatch(bagActions.removeFromBag(String(item.id)));
+    alert("Item removed from bag.");
   };
 
   return (

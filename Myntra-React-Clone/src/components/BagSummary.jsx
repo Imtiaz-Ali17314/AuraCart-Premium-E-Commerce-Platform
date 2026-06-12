@@ -1,6 +1,10 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { bagActions } from "../store/bagSlice";
+import { useNavigate } from "react-router-dom";
 
 const BagSummary = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const bagItemIds = useSelector((state) => state.bag);
   const items = useSelector((state) => state.items);
   const finalItems = items.filter((item) => {
@@ -19,6 +23,12 @@ const BagSummary = () => {
   });
 
   let finalPayment = totalMRP - totalDiscount + CONVENIENCE_FEES;
+
+  const handlePlaceOrder = () => {
+    dispatch(bagActions.clearBag());
+    alert("Order Placed Successfully!");
+    navigate("/");
+  };
 
   return (
     <div className="bag-summary">
@@ -44,7 +54,7 @@ const BagSummary = () => {
           <span className="price-item-value">Rs {finalPayment}</span>
         </div>
       </div>
-      <button className="btn-place-order">
+      <button className="btn-place-order" onClick={handlePlaceOrder}>
         <div className="css-xjhrni">PLACE ORDER</div>
       </button>
     </div>

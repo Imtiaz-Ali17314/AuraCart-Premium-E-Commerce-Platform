@@ -11,11 +11,7 @@ const Header = () => {
     <header>
       <div className="logo_container">
         <Link to="/">
-          <img
-            className="myntra_home"
-            src="images/myntra_logo.webp"
-            alt="Myntra Home"
-          />
+          <span style={{ fontSize: '28px', fontWeight: '800' }}>AuraCart</span>
         </Link>
       </div>
       <nav className="nav_bar">
@@ -36,10 +32,10 @@ const Header = () => {
         />
       </div>
       <div className="action_bar">
-        <div className="action_container">
+        <Link to="/login" className="action_container">
           <IoPerson />
           <span className="action_name">Profile</span>
-        </div>
+        </Link>
 
         <div className="action_container">
           <FaFaceGrinHearts />
