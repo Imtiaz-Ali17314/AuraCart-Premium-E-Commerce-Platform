@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { bagActions } from "../store/bagSlice";
 import { useNavigate } from "react-router-dom";
+import { FaCheckCircle } from "react-icons/fa";
 
 const BagSummary = () => {
   const dispatch = useDispatch();
@@ -31,31 +32,42 @@ const BagSummary = () => {
   };
 
   return (
-    <div className="bag-summary">
-      <div className="bag-details-container">
-        <div className="price-header">PRICE DETAILS ({totalItem} Items)</div>
-        <div className="price-item">
-          <span className="price-item-tag">Total MRP</span>
-          <span className="price-item-value">Rs {totalMRP}</span>
+    <div className="card-premium p-6 sticky top-28">
+      <h3 className="text-xl font-bold text-brand-light mb-6 uppercase tracking-wide border-b border-white/10 pb-4">
+        Price Summary
+      </h3>
+
+      <div className="space-y-4 mb-6">
+        <div className="flex justify-between text-brand-muted">
+          <span>Total MRP ({totalItem} items)</span>
+          <span>Rs {totalMRP}</span>
         </div>
-        <div className="price-item">
-          <span className="price-item-tag">Discount on MRP</span>
-          <span className="price-item-value priceDetail-base-discount">
-            -Rs {totalDiscount}
-          </span>
+        <div className="flex justify-between text-brand-muted">
+          <span>Discount on MRP</span>
+          <span className="text-brand-accent2 font-semibold">-Rs {totalDiscount}</span>
         </div>
-        <div className="price-item">
-          <span className="price-item-tag">Convenience Fee</span>
-          <span className="price-item-value">Rs 99</span>
-        </div>
-        <hr />
-        <div className="price-footer">
-          <span className="price-item-tag">Total Amount</span>
-          <span className="price-item-value">Rs {finalPayment}</span>
+        <div className="flex justify-between text-brand-muted">
+          <span>Convenience Fee</span>
+          <span>Rs {CONVENIENCE_FEES}</span>
         </div>
       </div>
-      <button className="btn-place-order" onClick={handlePlaceOrder}>
-        <div className="css-xjhrni">PLACE ORDER</div>
+
+      <div className="border-t border-white/10 pt-4 mb-8">
+        <div className="flex justify-between text-xl font-bold text-brand-light">
+          <span>Total Amount</span>
+          <span>Rs {finalPayment}</span>
+        </div>
+        <div className="mt-2 flex items-center text-xs text-brand-muted">
+          <FaCheckCircle className="text-brand-accent1 mr-1" />
+          <span>Taxes may apply at checkout</span>
+        </div>
+      </div>
+
+      <button
+        className="w-full btn-primary text-lg flex justify-center items-center gap-2"
+        onClick={handlePlaceOrder}
+      >
+        Place Order Securely
       </button>
     </div>
   );
